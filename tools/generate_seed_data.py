@@ -28,9 +28,9 @@ END = date(2026, 8, 31)
 # ---------------------------------------------------------------------------
 
 OFFICES = [
-    (1, "Colorado Springs", "Colorado Springs", "CO", date(2016, 3, 1)),
-    (2, "Denver", "Denver", "CO", date(2019, 7, 15)),
-    (3, "Northern Colorado", "Windsor", "CO", date(2022, 4, 4)),
+    (1, "Aurora", "Aurora", "CO", date(2016, 3, 1)),
+    (2, "Longmont", "Longmont", "CO", date(2019, 7, 15)),
+    (3, "Western Slope", "Grand Junction", "CO", date(2022, 4, 4)),
 ]
 
 SALESPEOPLE = [
@@ -89,50 +89,57 @@ VERTICAL_PROFILE = {
     18: dict(weight=2,  close=0.21, size=(24000, 195000)),
 }
 
+# All referral sources are invented. Same count per vertical as the original
+# draft, so the seeded generator produces an identical data shape.
 SOURCE_NAMES = {
-    1: ["Griffis Blessing", "Mission Rock Residential", "Excel Management",
-        "Cohen-Esrey Commercial", "Antero Property Group"],
-    2: ["29th Street Living", "Redpeak Properties", "Cardinal Group",
-        "Halstead Management"],
-    3: ["Summit Ridge HOA", "Pinon Creek Community Assn", "Broadmoor Bluffs HOA"],
-    4: ["Real Property Management Colorado", "All County Property Mgmt"],
-    5: ["Bluebird Plumbing", "Front Range Rooter", "Cascade Plumbing & Drain",
-        "Peak Pipe Works"],
-    6: ["Alpine Heating & Air", "Rampart HVAC"],
-    7: ["Summit Roofing Co", "Sentinel Roofing", "Cornerstone Exteriors"],
-    8: ["Kestrel Construction", "Hollis General Contracting"],
-    9: ["Fielder Insurance Agency", "Cheyenne Mountain Insurance",
-        "Northgate Risk Advisors"],
-    10: ["Arrowpoint Adjusters", "Meridian Claims Services"],
+    1: ["Waypoint Property Group", "Ridgeline Asset Management",
+        "Brightleaf Commercial", "Stonegate Property Partners",
+        "Cornerstone Commercial Realty"],
+    2: ["Alder Creek Residential", "Vantage Living Communities",
+        "Marlowe Apartment Group", "Windrose Residential"],
+    3: ["Elkhorn Ridge HOA", "Juniper Hollow Community Assn",
+        "Silverstone Bluffs HOA"],
+    4: ["Front Door Property Management", "Anchor Residential Management"],
+    5: ["Wren Plumbing", "Trailhead Rooter", "Millrace Plumbing & Drain",
+        "Anvil Pipe Works"],
+    6: ["Foxglove Heating & Air", "Compass Mechanical"],
+    7: ["Gable Roofing Co", "Weathervane Roofing", "Slate & Shingle Exteriors"],
+    8: ["Timberline Construction", "Marbury General Contracting"],
+    9: ["Ambrose Insurance Agency", "Redstone Insurance Partners",
+        "Wayfarer Risk Advisors"],
+    10: ["Plumb Line Adjusters", "Fair Weather Claims Services"],
     11: ["Preferred Contractor Network", "Carrier Direct Assignment"],
     12: ["Past Customer Referral"],
-    13: ["Google Organic", "Website Contact Form"],
-    14: ["Google Ads", "Local Services Ads"],
-    15: ["Ute Pass Restaurant Group", "Old Town Hospitality"],
-    16: ["Cheyenne Valley Medical", "Front Range Dental Partners"],
-    17: ["District 20 Facilities", "Poudre School District"],
-    18: ["City of Fountain", "El Paso County Facilities"],
+    13: ["Organic Search", "Website Contact Form"],
+    14: ["Paid Search", "Local Services Ads"],
+    15: ["Copper Kettle Restaurant Group", "Riverbend Hospitality"],
+    16: ["Aspen Ridge Medical", "Two Rivers Dental Partners"],
+    17: ["Larkspur School District", "Cedar Valley School District"],
+    18: ["City of Mill Creek", "Wheatland County Facilities"],
 }
 
+# Invented carriers. Every carrier figure in this repo -- cycle time, denial
+# rate, supplement behaviour -- is simulated, and attaching simulated numbers to
+# real insurers' names would be misleading regardless of intent.
 CARRIERS = [
-    (1, "State Farm", 24),
-    (2, "Allstate", 31),
-    (3, "USAA", 19),
-    (4, "Farmers", 38),
-    (5, "American Family", 27),
-    (6, "Travelers", 34),
-    (7, "Liberty Mutual", 41),
-    (8, "Chubb", 22),
-    (9, "Nationwide", 33),
-    (10, "Auto-Owners", 26),
+    (1, "Summit Mutual", 24),
+    (2, "Cascade General", 31),
+    (3, "Meridian Assurance", 19),
+    (4, "Northstar Indemnity", 38),
+    (5, "Bluewater Casualty", 27),
+    (6, "Ironbridge Mutual", 34),
+    (7, "Halcyon Insurance Group", 41),
+    (8, "Vantage Property & Casualty", 22),
+    (9, "Keystone Indemnity", 33),
+    (10, "Larkspur Mutual", 26),
 ]
 
 POSTAL_CODES = {
-    1: ["80903", "80906", "80907", "80909", "80918", "80919", "80920", "80921",
-        "80922", "80923", "80915", "80132", "80133"],
-    2: ["80202", "80205", "80209", "80211", "80218", "80220", "80231", "80246",
-        "80014", "80111", "80120", "80228"],
-    3: ["80550", "80528", "80525", "80526", "80534", "80631", "80513", "80537"],
+    1: ["80010", "80011", "80012", "80013", "80014", "80015", "80016", "80017",
+        "80018", "80019", "80045", "80046", "80247"],
+    2: ["80501", "80502", "80503", "80504", "80516", "80513", "80020", "80021",
+        "80026", "80027", "80301", "80303"],
+    3: ["81501", "81502", "81503", "81504", "81505", "81506", "81507", "81520"],
 }
 
 LOSS_TYPES = ["Water", "Fire", "Storm", "Mold", "Reconstruction", "Contents"]
@@ -149,9 +156,10 @@ COST_MIX = {
     "Equipment": 0.08, "Permits": 0.02, "Other": 0.03,
 }
 
-VENDORS = ["Rocky Mountain Supply", "ABC Building Products", "SERVPRO Equipment Rental",
-           "Front Range Drywall LLC", "Summit Electric", "Peak Flooring Co",
-           "Mountain West Paint", "Colorado Dumpster Service", "Aqua Dry Solutions"]
+VENDORS = ["Highline Supply Co", "Cornerstone Building Products",
+           "Rapid Dry Equipment Rental", "Boxelder Drywall LLC",
+           "Lantern Electric", "Quarry Flooring Co", "Westward Paint Supply",
+           "Blue Barrel Waste Services", "Aqua Dry Solutions"]
 
 
 # ---------------------------------------------------------------------------

@@ -18,18 +18,31 @@ createdb restoration_demo
 
 ## Why this domain
 
-I spent several years running operations for a restoration contractor — HR,
-payroll, AR and collections, vendor compliance, contract review — and built
-that company's reporting infrastructure from scratch. The questions in this
-repo are the ones I actually needed answered, and the data model reflects
-things you only learn from the inside: that an insurance job and a retail job
-have different margin structures and different collection behaviour, that
-supplements are the main reason a claim file goes slow, and that an unpaid
-balance stops being a collections problem and starts being a legal one on a
-specific date.
+Restoration contracting is an unusually good subject for an analytical model,
+because the money moves through three parties who do not agree with each other.
+A homeowner has a loss; a carrier decides what it is worth and pays on its own
+schedule; the contractor funds labour and materials in between. Almost every
+interesting question in the business lives in that gap.
 
-The dataset is synthetic. The structure, the relationships, and the questions
-are not.
+The model reflects things that are not obvious from outside the industry:
+
+- **Insurance-funded and retail work are different businesses.** They price
+  differently, carry different margins, and get collected differently. A single
+  blended margin number hides both.
+- **Supplements, not carrier slowness, drive cycle time.** A claim file that
+  needs two supplements takes 50–100% longer to approve than one that does not,
+  across every carrier in the model.
+- **An unpaid balance changes character on a specific, calculable date.** Under
+  Colorado's mechanic's lien statute a contractor has four months from the last
+  day of work to record a lien. Before that date it is a collections problem;
+  after it, the debt is unsecured and the leverage is gone. That deadline is a
+  generated column in the schema, not a spreadsheet someone maintains.
+
+The questions in this repo come from operating experience in the industry —
+accounts receivable, collections, vendor compliance and contract review — rather
+than from a public dataset. The data itself is entirely synthetic: every
+company, carrier, salesperson and job below is invented, and no real
+organisation's data appears anywhere in this repository.
 
 ---
 
@@ -113,7 +126,8 @@ channel in the data capable of replacing it quickly — paid search converts at
 a third the rate of a property-management referral.
 
 **Carrier cycle time varies by nearly a factor of two.** Median
-estimate-to-approval runs 26.5 days at USAA and 48 at Liberty Mutual and Farmers. Supplements
+estimate-to-approval runs 26.5 days at the fastest carrier in the model and 48
+at the two slowest. Supplements
 are the mechanism: across every carrier, files with two or more supplements
 take 49–99% longer to approve than files with none. That is an argument for
 getting the first estimate right rather than for chasing the carrier.
@@ -132,9 +146,9 @@ more data before repricing anything — but it is the segment worth testing.
 
 **A third of receivables are over 90 days.** $1.62M outstanding, 32.6% of it
 past 90 days. In the two largest offices, retail balances age worse than
-insurance balances — 39.7% vs 30.8% over 90 in Colorado Springs, 78.1% vs 10.6%
-in Denver. Counterintuitive until you remember that a carrier eventually pays
-and a homeowner in a dispute may not. Northern Colorado inverts the pattern, on
+insurance balances — 39.7% vs 30.8% over 90 in Aurora, 78.1% vs 10.6%
+in Longmont. Counterintuitive until you remember that a carrier eventually pays
+and a homeowner in a dispute may not. The Western Slope office inverts the pattern, on
 a book too small — 12 open invoices in total — to read as anything but noise.
 
 **DSO runs 60–95 days and is not trending down.** Ending receivables against
@@ -177,6 +191,16 @@ mean that six months after generating this dataset, every invoice in it appears
 90+ days late and the report becomes meaningless to anyone who clones the repo.
 In production this would be a parameter supplied by the BI layer with
 `CURRENT_DATE` as the default.
+
+### On the invented names
+
+Every carrier, referral source, vendor and salesperson in this dataset is
+fictional, and the office locations do not correspond to any real company's
+footprint. Colorado is kept because the lien deadlines are state-specific and
+that logic is a large part of the point; nothing else about the geography is
+meaningful. Attaching simulated cycle-time and denial-rate figures to real
+insurers' names would be misleading no matter how clearly the data was labelled
+synthetic, so the model does not do it.
 
 ### Scope
 
