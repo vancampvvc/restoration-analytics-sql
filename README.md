@@ -110,7 +110,7 @@ Every number below comes from the committed output in `results/`.
 **Response time tracks conversion, hard.** Leads contacted within an hour close
 at 44.8%. Past three days it is 19.3%, and leads never contacted at all close at
 4.2%. The middle of the distribution is where the money is: 41% of all leads sit
-in the 4–24 hour bucket, and closing the gap between that bucket and the
+in the 4 to 24 hour bucket, and closing the gap between that bucket and the
 one-hour bucket is worth roughly $2.2M in contract value across the period.
 
 The honest caveat, which is in the query header too: this is observational.
@@ -122,18 +122,18 @@ association; the thing that would prove causation is a randomised routing test.
 produce half the revenue; 21 produce 80%. Nine of the top ten are property
 management companies. That is a real single-point-of-failure: losing the top two
 relationships would take out 14.6% of revenue, and there is no marketing
-channel in the data capable of replacing it quickly — paid search converts at
+channel in the data capable of replacing it quickly / paid search converts at
 a third the rate of a property-management referral.
 
 **Carrier cycle time varies by nearly a factor of two.** Median
 estimate-to-approval runs 26.5 days at the fastest carrier in the model and 48
 at the two slowest. Supplements
 are the mechanism: across every carrier, files with two or more supplements
-take 49–99% longer to approve than files with none. That is an argument for
+take 49 to 99% longer to approve than files with none. That is an argument for
 getting the first estimate right rather than for chasing the carrier.
 
 **Margin thins sharply on the largest jobs.** Overall gross margin is 32.2% and
-holds near 33–34% in every size band up to $100k — then drops to 26.8% above it.
+holds near 33 to 34% in every size band up to $100k — then drops to 26.8% above it.
 The cost mix does not single out one culprit: from the smallest band to the
 largest, labour rises 22.8% → 25.0% of revenue, materials 17.6% → 19.6%, and
 subcontractor 17.1% → 18.9%. All three lines drift up by roughly two points
@@ -142,23 +142,23 @@ runaway cost category. The largest jobs are the ones the sales team is proudest
 of and the ones the company earns least on.
 
 The 26 jobs above $100k are a thin sample, so this is a hypothesis to test on
-more data before repricing anything — but it is the segment worth testing.
+more data before repricing anything, but it is the segment worth testing.
 
 **A third of receivables are over 90 days.** $1.62M outstanding, 32.6% of it
 past 90 days. In the two largest offices, retail balances age worse than
 insurance balances — 39.7% vs 30.8% over 90 in Aurora, 78.1% vs 10.6%
 in Longmont. Counterintuitive until you remember that a carrier eventually pays
 and a homeowner in a dispute may not. The Western Slope office inverts the pattern, on
-a book too small — 12 open invoices in total — to read as anything but noise.
+a book too small / 12 open invoices in total — to read as anything but noise.
 
 **DSO runs 60–95 days and is not trending down.** Ending receivables against
 monthly billings puts days sales outstanding in the 60s and 90s through 2026,
-with the three-month average flat around 70–78. For work that is funded by
-carriers approving estimates on a 26-to-48-day median cycle, that is a company financing
+with the three-month average flat around 70 to 78. For work that is funded by
+carriers approving estimates on a 26 to 48 day median cycle, that is a company financing
 roughly two months of its own labour and materials continuously.
 
 **$632,000 has already lost its lien rights.** 49 completed jobs with unpaid
-balances are past the four-month recording deadline — 37% of the at-risk
+balances are past the four-month recording deadline to 37% of the at-risk
 receivable, now unsecured. Only two jobs are inside the urgent window today,
 which is the point: the exposure was created months ago by nobody watching the
 date. This query run monthly would have caught every one of them.
