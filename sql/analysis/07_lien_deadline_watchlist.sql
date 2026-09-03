@@ -3,7 +3,7 @@
 --
 -- Business question
 --   Under Colorado law (C.R.S. 38-22) a contractor's lien statement must be
---   recorded within four months of the last day labour or materials were
+--   recorded within four months of the last day labor or materials were
 --   furnished, and a Notice of Intent to Lien must be served at least ten days
 --   before that recording. Miss the window and the debt is still owed but the
 --   security is gone — it becomes an unsecured claim you chase in county court.

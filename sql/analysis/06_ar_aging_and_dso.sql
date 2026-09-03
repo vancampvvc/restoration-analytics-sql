@@ -2,7 +2,7 @@
 -- 06 — Accounts receivable aging and days sales outstanding
 --
 -- Business question
---   Restoration is cash-flow sensitive: the company funds labour and materials
+--   Restoration is cash-flow sensitive: the company funds labor and materials
 --   before the carrier pays. This is the collections worklist and the DSO
 --   trend that tells us whether collections are getting better or worse.
 --

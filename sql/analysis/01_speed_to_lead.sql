@@ -14,7 +14,7 @@
 --   This is observational. Leads that are easy to reach are also easier to
 --   close, so part of this gap is selection, not causation. The honest claim
 --   is "response time is strongly associated with conversion", and the
---   experiment that would prove causation is a randomised routing test.
+--   experiment that would prove causation is a randomized routing test.
 -- ============================================================================
 
 SET search_path TO restoration, public;

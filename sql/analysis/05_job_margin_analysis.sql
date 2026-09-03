@@ -42,7 +42,7 @@ SELECT
                                                               AS margin_pct,
 
     -- Cost mix as a share of revenue. Reading these three columns across a row
-    -- is how you tell a subcontractor-heavy segment from a labour-heavy one,
+    -- is how you tell a subcontractor-heavy segment from a labor-heavy one,
     -- which is a different management problem with a different fix.
     ROUND(100.0 * SUM(labor_cost)         / NULLIF(SUM(total_contract_value), 0), 1)
                                                               AS labor_pct,

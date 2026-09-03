@@ -5,7 +5,7 @@ Generate sql/02_seed_data.sql for the restoration analytics project.
 The point of generating rather than hand-writing the data is that the *shape*
 of the data has to be defensible. Real restoration work is seasonal (hail in
 late spring, freeze breaks in January), close rates differ sharply by referral
-vertical, carrier payment behaviour varies, and a meaningful slice of
+vertical, carrier payment behavior varies, and a meaningful slice of
 receivables goes past due. A random dump would produce queries that run but
 say nothing.
 
@@ -119,7 +119,7 @@ SOURCE_NAMES = {
 }
 
 # Invented carriers. Every carrier figure in this repo -- cycle time, denial
-# rate, supplement behaviour -- is simulated, and attaching simulated numbers to
+# rate, supplement behavior -- is simulated, and attaching simulated numbers to
 # real insurers' names would be misleading regardless of intent.
 CARRIERS = [
     (1, "Summit Mutual", 24),
@@ -470,7 +470,7 @@ for ld in leads:
         continue
 
     # ---- costs -----------------------------------------------------------
-    # Gross margin centres near 34% but varies; large jobs run tighter.
+    # Gross margin centers near 34% but varies; large jobs run tighter.
     target_margin = RNG.gauss(0.34, 0.085)
     if total_value > 90000:
         target_margin -= 0.045
@@ -513,7 +513,7 @@ for ld in leads:
                 issued_on=issued, due_on=due, amount=amt, status=inv_status,
             ))
 
-            # Collection behaviour. Insurance-funded work pays slower, in
+            # Collection behavior. Insurance-funded work pays slower, in
             # pieces, and a real slice ages badly past terms.
             if is_insurance:
                 pay_lag = int(RNG.gauss(46, 26))

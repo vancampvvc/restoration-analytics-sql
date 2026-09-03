@@ -9,7 +9,7 @@
 --   the referral relationships we win, or replacing churned ones?
 --
 -- Technique
---   Monthly time series with LAG for year-over-year comparison, a centred
+--   Monthly time series with LAG for year-over-year comparison, a centered
 --   moving average to strip the seasonal component, and a cohort retention
 --   matrix built from a generated month spine — the LEFT JOIN against a
 --   generate_series spine is what stops a zero month from vanishing from the
@@ -67,7 +67,7 @@ SELECT
     ROUND(100.0 * (leads - LAG(leads, 12) OVER (ORDER BY month))
           / NULLIF(LAG(leads, 12) OVER (ORDER BY month), 0), 1) AS leads_yoy_pct,
 
-    -- Centred 12-month moving average: with a full year inside the window the
+    -- Centered 12-month moving average: with a full year inside the window the
     -- seasonal component cancels, so what is left is trend. NULL at the edges
     -- is correct and honest — a partial window would fake a trend line.
     CASE
@@ -121,7 +121,7 @@ ORDER BY month_num;
 -- Group sources by the quarter they first sent us a lead, then measure how
 -- many were still sending leads in each following quarter. A source that
 -- referred once and never again is not a relationship, and counting it as one
--- is how a referral programme reports growth while quietly shrinking.
+-- is how a referral program reports growth while quietly shrinking.
 -- ---------------------------------------------------------------------------
 WITH source_first AS (
     SELECT

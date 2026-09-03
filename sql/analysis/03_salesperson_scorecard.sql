@@ -1,5 +1,5 @@
 -- ============================================================================
--- 03 — Salesperson scorecard, normalised against the office
+-- 03 — Salesperson scorecard, normalized against the office
 --
 -- Business question
 --   Raw revenue ranks whoever has been here longest and works the biggest
